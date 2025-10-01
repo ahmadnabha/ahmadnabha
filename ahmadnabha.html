@@ -1,0 +1,1647 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ahmad Nabha - Actor, Director & Theatre Teacher</title>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cairo:wght@400;600;700&family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Georgia', serif;
+            background: #1a1a1a;
+            color: #e0e0e0;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        /* Aurora Background */
+        .aurora-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -2;
+            overflow: hidden;
+        }
+
+        .aurora {
+            position: absolute;
+            width: 200%;
+            height: 100%;
+            background: linear-gradient(
+                45deg,
+                transparent 0%,
+                rgba(255, 215, 0, 0.03) 20%,
+                rgba(255, 215, 0, 0.06) 40%,
+                rgba(255, 215, 0, 0.04) 60%,
+                rgba(255, 215, 0, 0.02) 80%,
+                transparent 100%
+            );
+            animation: auroraFlow 20s ease-in-out infinite;
+            transform-origin: center;
+        }
+
+        .aurora:nth-child(2) {
+            background: linear-gradient(
+                -45deg,
+                transparent 0%,
+                rgba(255, 215, 0, 0.025) 25%,
+                rgba(255, 215, 0, 0.04) 50%,
+                rgba(255, 215, 0, 0.02) 75%,
+                transparent 100%
+            );
+            animation-delay: -10s;
+            animation-duration: 25s;
+        }
+
+        .aurora:nth-child(3) {
+            background: linear-gradient(
+                90deg,
+                transparent 0%,
+                rgba(255, 215, 0, 0.015) 30%,
+                rgba(255, 215, 0, 0.03) 60%,
+                transparent 100%
+            );
+            animation-delay: -15s;
+            animation-duration: 30s;
+        }
+
+        @keyframes auroraFlow {
+            0%, 100% {
+                transform: translateX(-50%) translateY(-10%) rotate(0deg) scale(1);
+                opacity: 0.15;
+            }
+            25% {
+                transform: translateX(-30%) translateY(5%) rotate(2deg) scale(1.1);
+                opacity: 0.25;
+            }
+            50% {
+                transform: translateX(-10%) translateY(-5%) rotate(-1deg) scale(1.05);
+                opacity: 0.35;
+            }
+            75% {
+                transform: translateX(-40%) translateY(8%) rotate(1deg) scale(1.15);
+                opacity: 0.2;
+            }
+        }
+
+        /* Animated Stars Background */
+        .stars-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .star {
+            position: absolute;
+            background: #FFD700;
+            border-radius: 50%;
+            animation: twinkle 3s linear infinite;
+        }
+
+        .star.small {
+            width: 1px;
+            height: 1px;
+            animation-duration: 2s;
+        }
+
+        .star.medium {
+            width: 2px;
+            height: 2px;
+            animation-duration: 3s;
+        }
+
+        .star.large {
+            width: 3px;
+            height: 3px;
+            animation-duration: 4s;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { 
+                opacity: 0.3;
+                transform: scale(1);
+            }
+            50% { 
+                opacity: 1;
+                transform: scale(1.2);
+            }
+        }
+
+        .shooting-star {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: linear-gradient(45deg, #FFD700, transparent);
+            border-radius: 50%;
+            animation: shoot 8s linear infinite;
+        }
+
+        @keyframes shoot {
+            0% {
+                transform: translateX(-100px) translateY(-100px);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateX(calc(100vw + 100px)) translateY(calc(100vh + 100px));
+                opacity: 0;
+            }
+        }
+
+        /* Arabic text styling */
+        .arabic-text {
+            font-family: 'Amiri', 'Noto Sans Arabic', 'Cairo', 'Tajawal', serif;
+            direction: rtl;
+            text-align: right;
+            line-height: 1.8;
+        }
+
+        .work-item h3 {
+            color: #FFD700;
+            margin-bottom: 1rem;
+            font-size: 1.4rem;
+            line-height: 1.4;
+            word-wrap: break-word;
+            hyphens: auto;
+        }
+
+        .work-item h3.arabic-text {
+            font-family: 'Amiri', 'Noto Sans Arabic', 'Cairo', 'Tajawal', serif;
+            direction: rtl;
+            text-align: right;
+            font-size: 1.6rem;
+            font-weight: bold;
+        }
+
+        /* Navigation */
+        .nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(15, 15, 15, 0.1);
+            backdrop-filter: blur(20px) saturate(180%);
+            border-bottom: 1px solid rgba(255, 215, 0, 0.1);
+            z-index: 1000;
+            padding: 1rem 2rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #FFD700;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-links a {
+            color: #e0e0e0;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: #FFD700;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #FFD700;
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Floating Particles */
+        .particles-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            pointer-events: none;
+            z-index: 2;
+        }
+
+        .particle {
+            position: absolute;
+            background: radial-gradient(circle, rgba(255, 215, 0, 0.8) 0%, rgba(255, 215, 0, 0.2) 50%, transparent 100%);
+            border-radius: 50%;
+            animation: floatUp 15s linear infinite;
+        }
+
+        .particle.small {
+            width: 4px;
+            height: 4px;
+            animation-duration: 12s;
+        }
+
+        .particle.medium {
+            width: 8px;
+            height: 8px;
+            animation-duration: 15s;
+        }
+
+        .particle.large {
+            width: 12px;
+            height: 12px;
+            animation-duration: 18s;
+        }
+
+        @keyframes floatUp {
+            0% {
+                transform: translateY(100vh) translateX(0) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100px) translateX(100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero h1 {
+            font-size: 6rem;
+            margin: 0;
+            color: #FFD700;
+            font-weight: bold;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        .hero .subtitle {
+            font-size: 1.5rem;
+            margin: 1rem 0;
+            opacity: 0.9;
+            animation: fadeInUp 1s ease-out 0.3s both;
+        }
+
+        .hero .description {
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 2rem auto;
+            line-height: 1.6;
+            opacity: 0.8;
+            animation: fadeInUp 1s ease-out 0.6s both;
+        }
+
+        /* Section Styles */
+        .section {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: #FFD700;
+            position: relative;
+            animation: slideInFromLeft 0.8s ease-out;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, #FFD700, transparent);
+        }
+
+        /* Work Grid */
+        .work-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+            gap: 2.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .work-item {
+            background: rgba(30, 30, 30, 0.15);
+            backdrop-filter: blur(20px) saturate(180%);
+            border-radius: 20px;
+            padding: 2.5rem;
+            border: 1px solid rgba(255, 215, 0, 0.2);
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            position: relative;
+            overflow: hidden;
+            animation: fadeInUp 0.6s ease-out;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+
+        /* New Gallery Design */
+        .photo-gallery {
+            margin-top: 1.5rem;
+            position: relative;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            background: linear-gradient(135deg, rgba(25, 25, 25, 0.9), rgba(35, 35, 35, 0.8));
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 215, 0, 0.15);
+        }
+
+        .photo-gallery:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.3);
+            border-color: rgba(255, 215, 0, 0.3);
+        }
+
+        .gallery-images {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0px;
+            padding: 0px;
+            min-height: 280px;
+        }
+
+        .gallery-image {
+            position: relative;
+            border-radius: 0px;
+            overflow: hidden;
+            background: rgba(40, 40, 40, 0.5);
+            aspect-ratio: 1;
+            transition: all 0.3s ease;
+        }
+
+        .gallery-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-image:hover img {
+            transform: scale(1.05);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+            color: #FFD700;
+            padding: 8px 12px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .gallery-count {
+            background: rgba(255, 215, 0, 0.2);
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 0.75rem;
+        }
+
+        .gallery-view-text {
+            font-size: 0.75rem;
+            opacity: 0.8;
+        }
+
+        .photo-placeholder {
+            background: rgba(255, 215, 0, 0.1);
+            border-radius: 0px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 80px;
+            border: 1px solid rgba(255, 215, 0, 0.2);
+            color: rgba(255, 215, 0, 0.6);
+            font-size: 0.9rem;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .photo-placeholder:hover {
+            background: rgba(255, 215, 0, 0.2);
+            border-color: rgba(255, 215, 0, 0.4);
+        }
+
+        .upload-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: rgba(255, 215, 0, 0.7);
+            font-size: 0.9rem;
+            pointer-events: none;
+        }
+
+        .work-item:hover {
+            transform: translateY(-10px);
+            border-color: #FFD700;
+            box-shadow: 0 20px 40px rgba(255, 215, 0, 0.2);
+        }
+
+        .work-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 215, 0, 0.1), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .work-item:hover::before {
+            left: 100%;
+        }
+
+        .work-item p {
+            line-height: 1.6;
+            opacity: 0.9;
+        }
+
+        .work-category {
+            background: rgba(255, 215, 0, 0.2);
+            color: #FFD700;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            display: inline-block;
+            margin-bottom: 1rem;
+        }
+
+
+
+        /* Bio Section */
+        .bio {
+            background: rgba(30, 30, 30, 0.15);
+            backdrop-filter: blur(25px) saturate(180%);
+            border-radius: 25px;
+            padding: 3rem;
+            margin: 3rem 0;
+            border: 1px solid rgba(255, 215, 0, 0.3);
+            animation: fadeIn 1s ease-out;
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .bio-content {
+            display: grid;
+            grid-template-columns: 400px 1fr;
+            gap: 3rem;
+            align-items: start;
+        }
+
+        .bio-photo-section {
+            display: flex;
+            justify-content: center;
+        }
+
+        .bio-photo-placeholder {
+            width: 350px;
+            height: 420px;
+            background: rgba(255, 215, 0, 0.1);
+            border: 2px dashed rgba(255, 215, 0, 0.3);
+            border-radius: 15px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .bio-photo-placeholder:hover {
+            background: rgba(255, 215, 0, 0.2);
+            border-color: rgba(255, 215, 0, 0.5);
+            transform: scale(1.02);
+        }
+
+        .photo-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            opacity: 0.7;
+        }
+
+        .bio-photo-placeholder p {
+            color: #FFD700;
+            font-size: 1.1rem;
+            font-weight: bold;
+            margin: 0.5rem 0;
+        }
+
+        .bio-photo-placeholder span {
+            color: rgba(255, 215, 0, 0.7);
+            font-size: 0.9rem;
+        }
+
+        .bio-text p {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 1.2rem;
+        }
+
+        @media (max-width: 768px) {
+            .bio-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .bio-photo-placeholder {
+                width: 280px;
+                height: 340px;
+            }
+        }
+
+        /* Subsection Titles */
+        .subsection-title {
+            color: #FFD700;
+            font-size: 2.2rem;
+            margin-bottom: 2rem;
+            text-align: center;
+            position: relative;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .subsection-title::before {
+            content: '✦';
+            position: absolute;
+            left: -50px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.5rem;
+            color: #FFD700;
+            animation: sparkle 2s ease-in-out infinite;
+        }
+
+        .subsection-title::after {
+            content: '✦';
+            position: absolute;
+            right: -50px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.5rem;
+            color: #FFD700;
+            animation: sparkle 2s ease-in-out infinite 1s;
+        }
+
+        .subsection-title:hover {
+            color: #FFF;
+            text-shadow: 0 0 20px #FFD700, 2px 2px 4px rgba(0, 0, 0, 0.5);
+            transform: scale(1.05);
+            transition: all 0.3s ease;
+        }
+
+        @keyframes sparkle {
+            0%, 100% {
+                opacity: 0.5;
+                transform: translateY(-50%) scale(1);
+            }
+            50% {
+                opacity: 1;
+                transform: translateY(-50%) scale(1.2);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .subsection-title::before,
+            .subsection-title::after {
+                display: none;
+            }
+        }
+
+        /* Contact Section */
+        .contact {
+            text-align: center;
+            padding: 3rem;
+            background: rgba(255, 215, 0, 0.1);
+            border-radius: 20px;
+            margin: 3rem 0;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1.1rem;
+            transition: color 0.3s ease;
+        }
+
+        .contact-item:hover {
+            color: #FFD700;
+        }
+
+        /* Enhanced Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(60px) scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        @keyframes fadeIn {
+            from { 
+                opacity: 0; 
+                transform: scale(0.9);
+            }
+            to { 
+                opacity: 1; 
+                transform: scale(1);
+            }
+        }
+
+        @keyframes slideInFromLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-80px) rotate(-5deg);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0) rotate(0deg);
+            }
+        }
+
+        @keyframes slideInFromRight {
+            from {
+                opacity: 0;
+                transform: translateX(80px) rotate(5deg);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0) rotate(0deg);
+            }
+        }
+
+        @keyframes bounceIn {
+            0% {
+                opacity: 0;
+                transform: scale(0.3) translateY(50px);
+            }
+            50% {
+                opacity: 1;
+                transform: scale(1.05) translateY(-10px);
+            }
+            70% {
+                transform: scale(0.95) translateY(5px);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
+
+        @keyframes glow {
+            from {
+                text-shadow: 2px 2px 4px rgba(0,0,0,0.5), 0 0 10px rgba(212, 175, 55, 0.3);
+            }
+            to {
+                text-shadow: 2px 2px 4px rgba(0,0,0,0.5), 0 0 20px rgba(212, 175, 55, 0.6);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 3.5rem;
+                letter-spacing: 2px;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .section {
+                padding: 3rem 1rem;
+            }
+
+            .gallery-images {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+
+        }
+
+        /* Showreel Section */
+        .showreel-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+            background: rgba(30, 30, 30, 0.15);
+            backdrop-filter: blur(20px) saturate(180%);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 215, 0, 0.2);
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+
+        .showreel-container:hover {
+            transform: translateY(-5px);
+            border-color: rgba(255, 215, 0, 0.4);
+            box-shadow: 0 15px 40px rgba(255, 215, 0, 0.15);
+        }
+
+        .video-wrapper {
+            position: relative;
+            width: 100%;
+            max-width: 800px;
+            aspect-ratio: 16/9;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+            border-radius: 15px;
+        }
+
+        @media (max-width: 768px) {
+            .showreel-container {
+                padding: 1rem;
+            }
+            
+            .video-wrapper {
+                max-width: 100%;
+            }
+        }
+
+        /* Gallery Modal */
+        .gallery-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .gallery-modal.active {
+            display: flex;
+        }
+
+        .gallery-content {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 80px;
+        }
+
+        .gallery-modal .gallery-image {
+            max-width: 100%;
+            max-height: 100%;
+            width: auto;
+            height: auto;
+            object-fit: contain;
+            border-radius: 15px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8);
+        }
+
+        .gallery-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(212, 175, 55, 0.8);
+            color: #000;
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .gallery-nav:hover {
+            background: #FFD700;
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .gallery-prev {
+            left: 30px;
+        }
+
+        .gallery-next {
+            right: 30px;
+        }
+
+        .gallery-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgba(212, 175, 55, 0.9);
+            color: #000;
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2001;
+        }
+
+        .gallery-close:hover {
+            background: #FFD700;
+            transform: scale(1.1);
+        }
+
+        .gallery-counter {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0, 0, 0, 0.7);
+            color: #FFD700;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+
+        /* Scroll animations */
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease-out;
+        }
+
+        .animate-on-scroll.animated {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Aurora Background -->
+    <div class="aurora-container">
+        <div class="aurora"></div>
+        <div class="aurora"></div>
+        <div class="aurora"></div>
+    </div>
+
+    <!-- Animated Stars Background -->
+    <div class="stars-container" id="starsContainer"></div>
+
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-content">
+            <a href="#home" class="logo">Ahmad Nabha</a>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#theatre">Theatre</a></li>
+                <li><a href="#directing">Directing</a></li>
+                <li><a href="#cinema">Cinema & TV</a></li>
+                <li><a href="#kids">Kids Theatre</a></li>
+                <li><a href="#showreel">Showreel</a></li>
+                <li><a href="#bio">Bio</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="particles-container" id="particlesContainer"></div>
+        <div class="hero-content">
+            <h1>Ahmad Nabha</h1>
+            <p class="subtitle">Actor • Director • Theatre Teacher</p>
+            <p class="description">
+                Exploring the depths of human emotion through the transformative power of theatre, 
+                bringing stories to life with passion, authenticity, and artistic vision.
+            </p>
+        </div>
+    </section>
+
+    <!-- Theatre Section -->
+    <section id="theatre" class="section">
+        <h2 class="section-title animate-on-scroll">Theatre Works</h2>
+        
+        <div class="work-grid">
+            <div class="work-item animate-on-scroll">
+                <div class="work-category">Arabic Theatre</div>
+                <h3 class="arabic-text">مسرحية فرخ البط</h3>
+                <div class="photo-gallery" onclick="openGallery('farakh')">
+                    <div class="gallery-images">
+                        <div class="gallery-image">
+                            <img src="https://i.imgur.com/mvbRZCH.jpg" alt="مسرحية فرخ البط" onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';">
+                        </div>
+                        <div class="gallery-image">
+                            <img src="https://i.imgur.com/U0rYTjk.jpg" alt="مسرحية فرخ البط" onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';">
+                        </div>
+                        <div class="gallery-image">
+                            <img src="https://i.imgur.com/FxPT4ha.jpg" alt="مسرحية فرخ البط" onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';">
+                        </div>
+                    </div>
+                    <div class="gallery-overlay">
+                        <span class="gallery-view-text">اضغط لعرض المعرض</span>
+                        <span class="gallery-count">3 صور</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="work-item animate-on-scroll">
+                <div class="work-category">Arabic Theatre</div>
+                <h3 class="arabic-text">مسرحية انتظار</h3>
+                <div class="photo-gallery" onclick="openGallery('intizar')">
+                    <div class="gallery-images">
+                        <div class="gallery-image">
+                            <img src="https://i.imgur.com/DJlC5yJ.jpg" alt="مسرحية انتظار" onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';">
+                        </div>
+                        <div class="gallery-image">
+                            <img src="https://i.imgur.com/2z8hM4A.jpg" alt="مسرحية انتظار" onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';">
+                        </div>
+                        <div class="gallery-image">
+                            <div class="photo-placeholder">📸 صورة إضافية</div>
+                        </div>
+                    </div>
+                    <div class="gallery-overlay">
+                        <span class="gallery-view-text">اضغط لعرض المعرض</span>
+                        <span class="gallery-count">2 صورة</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="work-item animate-on-scroll">
+                <div class="work-category">Classic Theatre</div>
+                <h3 class="arabic-text">مسرحية رحلة النهار الطويلة خلال الليل</h3>
+                <div class="photo-gallery" onclick="openGallery('longday')">
+                    <div class="gallery-images">
+                        <div class="gallery-image">
+                            <img src="https://i.imgur.com/iMkdT4l.jpg" alt="رحلة النهار الطويلة" onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';">
+                        </div>
+                        <div class="gallery-image">
+                            <img src="https://i.imgur.com/38hqJCB.jpg" alt="رحلة النهار الطويلة" onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';">
+                        </div>
+                        <div class="gallery-image">
+                            <img src="https://i.imgur.com/1ur59DL.jpg" alt="رحلة النهار الطويلة" onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';">
+                        </div>
+                    </div>
+                    <div class="gallery-overlay">
+                        <span class="gallery-view-text">اضغط لعرض المعرض</span>
+                        <span class="gallery-count">4 صور</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="work-item animate-on-scroll">
+                <div class="work-category">Classic Theatre</div>
+                <h3 class="arabic-text">مسرحية فاوست</h3>
+                <div class="photo-gallery" onclick="openGallery('faust')">
+                    <div class="gallery-images">
+                        <div class="gallery-image">
+                            <img src="https://i.imgur.com/hBG2O8l.jpg" alt="مسرحية فاوست" onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';">
+                        </div>
+                        <div class="gallery-image">
+                            <img src="https://i.imgur.com/2qOqHdU.jpg" alt="مسرحية فاوست" onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';">
+                        </div>
+                        <div class="gallery-image">
+                            <div class="photo-placeholder">📸 صورة إضافية</div>
+                        </div>
+                    </div>
+                    <div class="gallery-overlay">
+                        <span class="gallery-view-text">اضغط لعرض المعرض</span>
+                        <span class="gallery-count">2 صورة</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="work-item animate-on-scroll">
+                <div class="work-category">Classic Theatre</div>
+                <h3 class="arabic-text">مسرحية برميل أومونتيادو</h3>
+                <div class="photo-gallery" onclick="openGallery('amontillado')">
+                    <div class="gallery-images">
+                        <div class="gallery-image">
+                            <img src="https://i.imgur.com/sLtZOdJ.jpg" alt="برميل أومونتيادو" onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';">
+                        </div>
+                        <div class="gallery-image">
+                            <img src="https://i.imgur.com/qf1Eihy.jpg" alt="برميل أومونتيادو" onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';">
+                        </div>
+                        <div class="gallery-image">
+                            <div class="photo-placeholder">📸 صورة إضافية</div>
+                        </div>
+                    </div>
+                    <div class="gallery-overlay">
+                        <span class="gallery-view-text">اضغط لعرض المعرض</span>
+                        <span class="gallery-count">2 صورة</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Directing Works Section -->
+    <section id="directing" class="section">
+        <h2 class="section-title animate-on-scroll">Directing Works</h2>
+        
+        <div class="work-grid">
+            <div class="work-item animate-on-scroll">
+                <div class="work-category">Directing</div>
+                <h3 class="arabic-text">مسرحية الأخرس</h3>
+                <div class="photo-gallery" onclick="openGallery('mute')">
+                    <div class="gallery-images">
+                        <div class="gallery-image">
+                            <img src="https://i.imgur.com/9o7v29k.jpg" alt="مسرحية الأخرس" onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';">
+                        </div>
+                        <div class="gallery-image">
+                            <img src="https://i.imgur.com/XKeDM0G.jpg" alt="مسرحية الأخرس" onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';">
+                        </div>
+                        <div class="gallery-image">
+                            <img src="https://i.imgur.com/vVRGp5g.jpg" alt="مسرحية الأخرس" onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';">
+                        </div>
+                    </div>
+                    <div class="gallery-overlay">
+                        <span class="gallery-view-text">اضغط لعرض المعرض</span>
+                        <span class="gallery-count">4 صور</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="work-item animate-on-scroll">
+                <div class="work-category">Directing</div>
+                <h3 class="arabic-text">مسرحية غيفارا على درب الجلجلة</h3>
+                <div class="photo-gallery" onclick="openGallery('guevara')">
+                    <div class="gallery-images">
+                        <div class="gallery-image">
+                            <img src="https://i.imgur.com/oIPW0am.jpg" alt="غيفارا على درب الجلجلة" onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';">
+                        </div>
+                        <div class="gallery-image">
+                            <img src="https://i.imgur.com/8qdDzNB.jpg" alt="غيفارا على درب الجلجلة" onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';">
+                        </div>
+                        <div class="gallery-image">
+                            <img src="https://i.imgur.com/0b5UGje.jpg" alt="غيفارا على درب الجلجلة" onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';">
+                        </div>
+                    </div>
+                    <div class="gallery-overlay">
+                        <span class="gallery-view-text">اضغط لعرض المعرض</span>
+                        <span class="gallery-count">4 صور</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="work-item animate-on-scroll">
+                <div class="work-category">Directing</div>
+                <h3 class="arabic-text">مسرحية ماكبث</h3>
+                <div class="photo-gallery" onclick="openGallery('macbeth')">
+                    <div class="gallery-images">
+                        <div class="gallery-image">
+                            <img src="https://i.imgur.com/aj25cDw.jpg" alt="مسرحية ماكبث" onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';">
+                        </div>
+                        <div class="gallery-image">
+                            <img src="https://i.imgur.com/B6MsWRl.jpg" alt="مسرحية ماكبث" onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';">
+                        </div>
+                        <div class="gallery-image">
+                            <img src="https://i.imgur.com/9Dz1fkp.jpg" alt="مسرحية ماكبث" onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';">
+                        </div>
+                    </div>
+                    <div class="gallery-overlay">
+                        <span class="gallery-view-text">اضغط لعرض المعرض</span>
+                        <span class="gallery-count">4 صور</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="work-item animate-on-scroll">
+                <div class="work-category">Directing</div>
+                <h3 class="arabic-text">مسرحية عربة إسمها الرغبة</h3>
+                <div class="photo-gallery" onclick="openGallery('streetcar')">
+                    <div class="gallery-images">
+                        <div class="gallery-image">
+                            <img src="https://i.imgur.com/X0NUyR3.jpg" alt="عربة إسمها الرغبة" onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';">
+                        </div>
+                        <div class="gallery-image">
+                            <img src="https://i.imgur.com/5CUnyag.jpg" alt="عربة إسمها الرغبة" onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';">
+                        </div>
+                        <div class="gallery-image">
+                            <img src="https://i.imgur.com/nKMc1Tt.jpg" alt="عربة إسمها الرغبة" onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cinema & TV Section -->
+    <section id="cinema" class="section">
+        <h2 class="section-title animate-on-scroll">Cinema & Television</h2>
+        
+        <div class="work-grid">
+            <div class="work-item animate-on-scroll">
+                <div class="work-category">TV Series</div>
+                <h3 class="arabic-text">مسلسل الباشا</h3>
+                <div class="photo-gallery" onclick="openGallery('pasha')">
+                    <div class="gallery-images">
+                        <div class="gallery-image">
+                            <img src="https://i.imgur.com/GRjm781.jpg" alt="مسلسل الباشا" onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';">
+                        </div>
+                        <div class="gallery-image">
+                            <img src="https://i.imgur.com/jba6iDw.jpg" alt="مسلسل الباشا" onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';">
+                        </div>
+                        <div class="gallery-image">
+                            <div class="photo-placeholder">📺 مشهد إضافي</div>
+                        </div>
+                    </div>
+                    <div class="gallery-overlay">
+                        <span class="gallery-view-text">اضغط لعرض الصور</span>
+                        <span class="gallery-count">2 صورة</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="work-item animate-on-scroll">
+                <div class="work-category">Feature Film</div>
+                <h3 class="arabic-text">فيلم القرار</h3>
+                <div class="photo-gallery" onclick="openGallery('decision')">
+                    <div class="gallery-images">
+                        <div class="gallery-image">
+                            <img src="https://i.imgur.com/vR2VDAX.jpg" alt="فيلم القرار" onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';">
+                        </div>
+                        <div class="gallery-image">
+                            <img src="https://i.imgur.com/H70Td8d.jpg" alt="فيلم القرار" onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';">
+                        </div>
+                        <div class="gallery-image">
+                            <div class="photo-placeholder">🎬 مشهد إضافي</div>
+                        </div>
+                    </div>
+                    <div class="gallery-overlay">
+                        <span class="gallery-view-text">اضغط لعرض الصور</span>
+                        <span class="gallery-count">2 صورة</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Kids Theatre Section -->
+    <section id="kids" class="section">
+        <h2 class="section-title animate-on-scroll">Children's Theatre</h2>
+        
+        <div class="work-grid">
+            <div class="work-item animate-on-scroll">
+                <div class="work-category">Children's Theatre</div>
+                <h3 class="arabic-text">مسرحيات للأطفال - مهرجان قطر للألعاب ٢٠٢٤ ومهرجان قطر للتسوق ٢٠٢٥</h3>
+                <div class="photo-gallery" onclick="openGallery('kidsplays')">
+                    <div class="gallery-images">
+                        <div class="gallery-image">
+                            <img src="https://i.imgur.com/W7hLdn0.jpg" alt="مسرحيات الأطفال" onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';">
+                        </div>
+                        <div class="gallery-image">
+                            <img src="https://i.imgur.com/SbMtPoi.jpg" alt="مسرحيات الأطفال" onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';">
+                        </div>
+                        <div class="gallery-image">
+                            <img src="https://i.imgur.com/vPhtm3x.jpg" alt="مسرحيات الأطفال" onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';">
+                        </div>
+                    </div>
+                    <div class="gallery-overlay">
+                        <span class="gallery-view-text">اضغط لعرض المعرض</span>
+                        <span class="gallery-count">10 صور</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Acting Showreel Section -->
+    <section id="showreel" class="section">
+        <h2 class="section-title animate-on-scroll">Acting Showreel</h2>
+        
+        <div class="showreel-container animate-on-scroll">
+            <div class="video-wrapper">
+                <iframe width="560" height="315"
+                    src="https://www.youtube.com/embed/FYapoWePvF8"
+                    title="Ahmad Nabha - Acting Showreel"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen>
+                </iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bio Section -->
+    <section id="bio" class="section">
+        <h2 class="section-title animate-on-scroll">Biography</h2>
+        
+        <div class="bio animate-on-scroll">
+            <div class="bio-content">
+                <div class="bio-photo-section">
+                    <div class="bio-photo-placeholder">
+                        <img src="https://i.imgur.com/0UkkJxJ.jpg" alt="Ahmad Nabha Professional Photo" style="width: 100%; height: 100%; object-fit: cover; border-radius: 15px;" onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';">
+                    </div>
+                </div>
+                <div class="bio-text">
+                    <p>Ahmad Nabha is a versatile actor, director, and theatre educator with over 15 years of experience in both Arabic and international theatre. Born in Damascus and trained at the prestigious Royal Academy of Dramatic Arts in London, Ahmad brings a unique cross-cultural perspective to his work.</p>
+                    
+                    <p>His career spans classical and contemporary theatre, with notable performances in Shakespeare, Chekhov, and modern Arabic drama. As a director, Ahmad is known for his innovative interpretations that bridge Eastern and Western theatrical traditions.</p>
+                    
+                    <p>Currently serving as a theatre instructor at the National Arts Academy, Ahmad is passionate about nurturing the next generation of performers. His teaching methodology combines classical techniques with contemporary approaches, emphasizing emotional truth and cultural authenticity.</p>
+                    
+                    <p>Ahmad's work has been recognized with several awards, including Best Actor at the Middle East Film Festival and the Excellence in Theatre Education Award from the Arab Theatre Union.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section">
+        <h2 class="section-title animate-on-scroll">Contact</h2>
+        
+        <div class="contact animate-on-scroll">
+            <h3 class="subsection-title">Get In Touch</h3>
+            <p>Available for theatrical productions, film projects, and educational workshops</p>
+            
+            <div class="contact-info">
+                <div class="contact-item">
+                    <span>📧</span>
+                    <span>ahmadnabha.actor@gmail.com</span>
+                </div>
+                <div class="contact-item">
+                    <span>📱</span>
+                    <span>+96181639893</span>
+                </div>
+                <div class="contact-item">
+                    <span>📷</span>
+                    <span>@_ahmadnabha_</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Modal -->
+    <div id="galleryModal" class="gallery-modal">
+        <div class="gallery-content">
+            <button class="gallery-close" onclick="closeGallery()">×</button>
+            <button class="gallery-nav gallery-prev" onclick="prevImage()">‹</button>
+            <img id="galleryImage" class="gallery-image" src="" alt="">
+            <button class="gallery-nav gallery-next" onclick="nextImage()">›</button>
+            <div class="gallery-counter">
+                <span id="currentImage">1</span> / <span id="totalImages">1</span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Create animated stars
+        function createStars() {
+            const starsContainer = document.getElementById('starsContainer');
+            const numberOfStars = 150;
+            
+            // Create twinkling stars
+            for (let i = 0; i < numberOfStars; i++) {
+                const star = document.createElement('div');
+                star.className = `star ${['small', 'medium', 'large'][Math.floor(Math.random() * 3)]}`;
+                star.style.left = Math.random() * 100 + '%';
+                star.style.top = Math.random() * 100 + '%';
+                star.style.animationDelay = Math.random() * 3 + 's';
+                starsContainer.appendChild(star);
+            }
+            
+            // Create shooting stars
+            for (let i = 0; i < 3; i++) {
+                const shootingStar = document.createElement('div');
+                shootingStar.className = 'shooting-star';
+                shootingStar.style.left = Math.random() * 100 + '%';
+                shootingStar.style.top = Math.random() * 100 + '%';
+                shootingStar.style.animationDelay = Math.random() * 8 + 's';
+                starsContainer.appendChild(shootingStar);
+            }
+        }
+
+        // Create floating particles
+        function createParticles() {
+            const particlesContainer = document.getElementById('particlesContainer');
+            const numberOfParticles = 30;
+            
+            for (let i = 0; i < numberOfParticles; i++) {
+                const particle = document.createElement('div');
+                particle.className = `particle ${['small', 'medium', 'large'][Math.floor(Math.random() * 3)]}`;
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 15 + 's';
+                particle.style.animationDuration = (12 + Math.random() * 8) + 's';
+                particlesContainer.appendChild(particle);
+            }
+        }
+
+        // Smooth Scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Enhanced scroll animations
+        const observerOptions = {
+            threshold: 0.15,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    // Add staggered delay for multiple elements
+                    setTimeout(() => {
+                        entry.target.classList.add('animated');
+                        
+                        // Add different animation classes based on element type
+                        if (entry.target.classList.contains('section-title')) {
+                            entry.target.style.animation = 'bounceIn 0.8s ease-out forwards';
+                        } else if (entry.target.classList.contains('work-item')) {
+                            const isEven = Array.from(entry.target.parentNode.children).indexOf(entry.target) % 2 === 0;
+                            entry.target.style.animation = isEven ? 
+                                'slideInFromLeft 0.6s ease-out forwards' : 
+                                'slideInFromRight 0.6s ease-out forwards';
+                        }
+                    }, index * 100);
+                }
+            });
+        }, observerOptions);
+
+        // Observe all elements with animate-on-scroll class
+        document.querySelectorAll('.animate-on-scroll').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Add stagger effect to work items
+        document.querySelectorAll('.work-item').forEach((item, index) => {
+            item.style.animationDelay = `${index * 0.15}s`;
+        });
+
+        // Parallax effect on scroll
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const parallaxElements = document.querySelectorAll('.hero-content');
+            
+            parallaxElements.forEach(element => {
+                const speed = 0.5;
+                element.style.transform = `translateY(${scrolled * speed}px)`;
+            });
+        });
+
+        // Navigation background on scroll
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('.nav');
+            if (window.scrollY > 100) {
+                nav.style.background = 'rgba(15, 15, 15, 0.98)';
+            } else {
+                nav.style.background = 'rgba(15, 15, 15, 0.95)';
+            }
+        });
+
+        // Gallery data
+        const galleries = {
+            'farakh': [
+                'https://i.imgur.com/mvbRZCH.jpg',
+                'https://i.imgur.com/U0rYTjk.jpg',
+                'https://i.imgur.com/FxPT4ha.jpg'
+            ],
+            'intizar': [
+                'https://i.imgur.com/DJlC5yJ.jpg',
+                'https://i.imgur.com/2z8hM4A.jpg'
+            ],
+            'longday': [
+                'https://i.imgur.com/iMkdT4l.jpg',
+                'https://i.imgur.com/38hqJCB.jpg',
+                'https://i.imgur.com/1ur59DL.jpg',
+                'https://i.imgur.com/dzN05SX.jpg'
+            ],
+            'faust': [
+                'https://i.imgur.com/hBG2O8l.jpg',
+                'https://i.imgur.com/2qOqHdU.jpg'
+            ],
+            'amontillado': [
+                'https://i.imgur.com/sLtZOdJ.jpg',
+                'https://i.imgur.com/qf1Eihy.jpg'
+            ],
+            'pasha': [
+                'https://i.imgur.com/GRjm781.jpg',
+                'https://i.imgur.com/jba6iDw.jpg'
+            ],
+            'decision': [
+                'https://i.imgur.com/vR2VDAX.jpg',
+                'https://i.imgur.com/H70Td8d.jpg'
+            ],
+            'kidsplays': [
+                'https://i.imgur.com/W7hLdn0.jpg',
+                'https://i.imgur.com/SbMtPoi.jpg',
+                'https://i.imgur.com/vPhtm3x.jpg',
+                'https://i.imgur.com/M4R8nNF.jpg',
+                'https://i.imgur.com/pvym2Z5.jpg',
+                'https://i.imgur.com/cs2798C.jpg',
+                'https://i.imgur.com/kWumitf.jpg',
+                'https://i.imgur.com/TuujG2R.jpg',
+                'https://i.imgur.com/EEMmlBn.jpg',
+                'https://i.imgur.com/6Ik1R14.jpg'
+            ],
+            'mute': [
+                'https://i.imgur.com/9o7v29k.jpg',
+                'https://i.imgur.com/XKeDM0G.jpg',
+                'https://i.imgur.com/vVRGp5g.jpg',
+                'https://i.imgur.com/OH4kJTF.jpg'
+            ],
+            'guevara': [
+                'https://i.imgur.com/oIPW0am.jpg',
+                'https://i.imgur.com/8qdDzNB.jpg',
+                'https://i.imgur.com/0b5UGje.jpg',
+                'https://i.imgur.com/mKuoB03.jpg'
+            ],
+            'macbeth': [
+                'https://i.imgur.com/aj25cDw.jpg',
+                'https://i.imgur.com/B6MsWRl.jpg',
+                'https://i.imgur.com/9Dz1fkp.jpg',
+                'https://i.imgur.com/vafTAF7.jpg'
+            ],
+            'streetcar': [
+                'https://i.imgur.com/X0NUyR3.jpg',
+                'https://i.imgur.com/5CUnyag.jpg',
+                'https://i.imgur.com/nKMc1Tt.jpg',
+                'https://i.imgur.com/K4DHeQL.jpg',
+                'https://i.imgur.com/tKVgslw.jpg',
+                'https://i.imgur.com/X6kwpXD.jpg'
+            ]
+        };
+
+        // Gallery functionality
+        let currentGallery = [];
+        let currentIndex = 0;
+
+        function openGallery(galleryId, startIndex = 0) {
+            currentGallery = galleries[galleryId];
+            currentIndex = startIndex;
+            
+            const modal = document.getElementById('galleryModal');
+            const image = document.getElementById('galleryImage');
+            const currentSpan = document.getElementById('currentImage');
+            const totalSpan = document.getElementById('totalImages');
+            
+            image.src = currentGallery[currentIndex];
+            currentSpan.textContent = currentIndex + 1;
+            totalSpan.textContent = currentGallery.length;
+            
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeGallery() {
+            const modal = document.getElementById('galleryModal');
+            modal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        function nextImage() {
+            currentIndex = (currentIndex + 1) % currentGallery.length;
+            updateGalleryImage();
+        }
+
+        function prevImage() {
+            currentIndex = (currentIndex - 1 + currentGallery.length) % currentGallery.length;
+            updateGalleryImage();
+        }
+
+        function updateGalleryImage() {
+            const image = document.getElementById('galleryImage');
+            const currentSpan = document.getElementById('currentImage');
+            
+            image.src = currentGallery[currentIndex];
+            currentSpan.textContent = currentIndex + 1;
+        }
+
+
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            const modal = document.getElementById('galleryModal');
+            if (modal.classList.contains('active')) {
+                if (e.key === 'ArrowRight') nextImage();
+                if (e.key === 'ArrowLeft') prevImage();
+                if (e.key === 'Escape') closeGallery();
+            }
+        });
+
+        // Close modal when clicking outside
+        document.getElementById('galleryModal').addEventListener('click', (e) => {
+            if (e.target.id === 'galleryModal') {
+                closeGallery();
+            }
+        });
+
+        // Initialize animations when page loads
+        document.addEventListener('DOMContentLoaded', () => {
+            createStars();
+            createParticles();
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'987b65b3d592e30c',t:'MTc1OTMxNTgwNy4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
